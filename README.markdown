@@ -7,9 +7,15 @@ with a dot '.' will be prefixed with a namespace. This automatic scoping
 takes into account the modules, class name, and method name. So a call in 
 Admin::UsersController.index will be prefixed with 'admin.users.index'.
 
-**Note:** This plugin has only very limited test coverage. So please 
-run your test suite before using it in production. I hope I will find 
-time to extend it. Or just fork and add it yourself.
+This plugin **only** works with calls to t() and translate() within 
+controllers which inherit from ActionController::Base. Calls to 
+I18n.t() and I18n.translate() are not touched and keys will not be 
+prefixed.
+
+*Note:* This plugin has only been tested with rails3 and has a very 
+limited test coverage. So please run your test suite before using it in 
+production. I hope I will find time to extend it. Or just fork and add 
+it yourself. 
 
 Example
 -------

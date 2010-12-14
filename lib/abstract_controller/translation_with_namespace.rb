@@ -18,10 +18,10 @@ module AbstractController::TranslationWithNamespace
     if key.to_s.first == '.'
       # First remove the Controller part from the class name
       # And in case that the controller is within a namespace
-      parts = (self.class.to_s[0..-11]).underscore.split('::')
+      parts = (self.class.to_s[0..-11]).split('::')
       
       # Transform to underscore version
-      parts = parts.map { |i| i.to_s.downcase }
+      parts = parts.map { |i| i.underscore }
       
       # 0 => my_translate
       # 1 => calling method (should be controller action name)
